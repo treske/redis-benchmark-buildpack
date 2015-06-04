@@ -55,7 +55,6 @@ if [ ! -d $CACHE_DIR/ruby ]; then
   $BUILD_DIR/ruby/bin/gem env
 
   gem install bundler
-  gem install rack
 fi
 
 # List contents of build directory
