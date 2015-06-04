@@ -61,6 +61,8 @@ $BUILD_DIR/ruby/bin/gem env
 gem install bundler
 gem install rack
 gem install thin
+gem install rack-protection
+gem install tilt
 
 ls -alF $BUILD_DIR
 
