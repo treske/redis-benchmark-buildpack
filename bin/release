@@ -1,4 +1,15 @@
-config_vars:
-  RACK_ENV: production
-default_process_types:
-  web: bundle exec rackup config.ru -p $PORT
+#!/usr/bin/env ruby
+require 'yaml'
+
+payload = {
+  'addons'                => [],
+  'config_vars'           => {},
+  'default_process_types' => { 'web' => 'bundle exec rackup config.ru -p $PORT' }
+}.to_yaml
+
+puts payload
+
+# config_vars:
+#  RACK_ENV: production
+# default_process_types:
+#  web: bundle exec rackup config.ru -p $PORT
