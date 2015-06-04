@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 echo "boot.sh"
+
+gem env
+
 echo "Setting path"
 export PATH=$PATH:$HOME/ruby/bin:$HOME/ruby_gems/bin
 echo $PATH
