@@ -16,6 +16,7 @@ rm -rf $CACHE_DIR/*
 
 # Copy app to start
 cp -r $DIR/../app/* $BUILD_DIR/
+cp -r boot.sh $BUILD_DIR/
 
 # Install Redis
 if [ ! -d $CACHE_DIR/redis_$REDIS_VERSION ]; then
@@ -46,6 +47,14 @@ if [ ! -d $CACHE_DIR/ruby ]; then
   ./configure --prefix=$BUILD_DIR/ruby
   make
   make install
+
+  mkdir -p $BUILD_DIR/ruby_gems
+  export GEM_HOME=$BUILD_DIR/ruby_gems
+  export PATH=$PATH:$GEM_HOME/bin
+  $BUILD_DIR/ruby/bin/gem env
+
+  gem install bundler
+  gem install rack
 fi
 
 # List contents of build directory
