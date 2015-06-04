@@ -35,17 +35,21 @@ else
 fi  
 
 # Install Ruby
-if [ ! -d $CACHE_DIR/ruby ]; then
-  echo "Fetching and installing Ruby"
+if [ ! -d $CACHE_DIR/ruby/ruby-2.2.2 ]; then
+  echo "Fetching and unpacking Ruby 2.2.2"
   mkdir -p $CACHE_DIR/ruby
   cd $CACHE_DIR/ruby
   curl -vv -OL "http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.2.tar.gz"
   tar zxf "ruby-2.2.2.tar.gz"
-  cd "ruby-2.2.2"
-  ./configure --prefix=$BUILD_DIR/ruby
-  make
-  make install
+else
+  echo "Using Ruby 2.2.2 from cache"
 fi
+
+echo "Installing Ruby"
+cd $CACHE_DIR/ruby/ruby-2.2.2
+./configure --prefix=$BUILD_DIR/ruby
+make
+make install
 
 # Install Ruby gems
 mkdir -p $BUILD_DIR/ruby_gems
