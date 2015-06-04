@@ -59,7 +59,7 @@ export GEM_SPEC_CACHE=$BUILD_DIR/ruby_gems_spec
 export PATH=$PATH:$GEM_HOME/bin
 $BUILD_DIR/ruby/bin/gem env
 gem install bundler
-gem install rackup
+gem install rack
 
 ls -alF $BUILD_DIR
 
