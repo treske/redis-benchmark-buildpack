@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-echo -e "Setting path"
+echo "Setting path"
 export PATH=$PATH:$HOME/ruby/bin:$HOME/ruby_gems/bin
 echo $PATH
-echo -e "Starting app"
+echo "Starting app"
 bundle exec --verbose rackup config.ru -p $PORT
