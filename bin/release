@@ -4,7 +4,7 @@ require 'yaml'
 payload = {
   'addons'                => [],
   'config_vars'           => {},
-  'default_process_types' => { 'web' => 'echo "12345" && sh boot.sh' }
+  'default_process_types' => { 'web' => 'sh /app/boot.sh' }
 }.to_yaml
 
 puts payload

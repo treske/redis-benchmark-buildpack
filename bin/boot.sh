@@ -3,5 +3,8 @@
 echo "Setting path"
 export PATH=$PATH:$HOME/ruby/bin:$HOME/ruby_gems/bin
 echo $PATH
+
+$HOME/ruby/bin/gem env
+
 echo "Starting app"
-bundle exec --verbose rackup config.ru -p $PORT
+$HOME/ruby_gems/bin/bundle exec --verbose rackup config.ru -p $PORT
