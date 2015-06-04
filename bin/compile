@@ -60,6 +60,7 @@ export PATH=$PATH:$GEM_HOME/bin
 $BUILD_DIR/ruby/bin/gem env
 gem install bundler
 gem install rack
+gem install thin
 
 ls -alF $BUILD_DIR
 
