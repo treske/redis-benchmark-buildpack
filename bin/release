@@ -1,1 +1,1 @@
-echo -e "---\ndefault_process_types:\n  web: sh boot.sh"
+echo -e "---\nconfig_vars: {}\ndefault_process_types:\n  web: sh boot.sh"

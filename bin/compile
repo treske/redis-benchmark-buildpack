@@ -58,6 +58,4 @@ export PATH=$PATH:$GEM_HOME/bin
 $BUILD_DIR/ruby/bin/gem env
 gem install bundler
 
-# List contents of build directory
-# cd $BUILD_DIR
-# find . | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
+echo "Finishing compile"
