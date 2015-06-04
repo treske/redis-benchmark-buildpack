@@ -59,6 +59,7 @@ export GEM_SPEC_CACHE=$BUILD_DIR/ruby_gems_spec
 export PATH=$PATH:$GEM_HOME/bin
 $BUILD_DIR/ruby/bin/gem env
 gem install bundler
+gem install sinatra
 gem install rack
 gem install thin
 gem install rack-protection
