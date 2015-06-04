@@ -53,7 +53,9 @@ make install
 
 # Install Ruby gems
 mkdir -p $BUILD_DIR/ruby_gems
+mkdir -p $BUILD_DIR/ruby_gems_spec
 export GEM_HOME=$BUILD_DIR/ruby_gems
+export GEM_SPEC_CACHE=$BUILD_DIR/ruby_gems_spec
 export PATH=$PATH:$GEM_HOME/bin
 $BUILD_DIR/ruby/bin/gem env
 gem install bundler
