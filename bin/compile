@@ -44,6 +44,3 @@ if [ ! -d $CACHE_DIR/ruby ]; then
   make
   make install
 fi
-
-# Copy app to start
-cp -r app/* $BUILD_DIR/
