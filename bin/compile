@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+set -e            # fail fast
+set -o pipefail   # do not ignore exit codes when piping output
+set -o posix      # more strict failures in subshells
+set -x            # enable debugging
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+REDIS_VERSION="3.0.1"
+
+# Install Redis
+if [ ! -d $CACHE_DIR/redis_$REDIS_VERSION ]; then
+  echo "Fetching and installing Redis $REDIS_VERSION"
+  mkdir -p $CACHE_DIR/redis_$REDIS_VERSION
+  cd $CACHE_DIR/redis_$REDIS_VERSION
+  curl -vv -OL "http://download.redis.io/releases/redis-$REDIS_VERSION.tar.gz"
+  tar zxvf "redis-$REDIS_VERSION.tar.gz"
+  cd "redis-$REDIS_VERSION"
+  make
+  make PREFIX=$CACHE_DIR/redis_$REDIS_VERSION install
+  mkdir -p $BUILD_DIR/cmd/
+  cp -r $CACHE_DIR/redis_$REDIS_VERSION/redis-$REDIS_VERSION/src/redis-benchmark $BUILD_DIR/cmd/redis-benchmark
+else
+  echo "Installing redis from cache"
+  mkdir -p $BUILD_DIR/cmd/
+  cp -r $CACHE_DIR/redis_$REDIS_VERSION/redis-$REDIS_VERSION/src/redis-benchmark $BUILD_DIR/cmd/redis-benchmark
+fi  
+
+# Install Ruby
+if [ ! -d $CACHE_DIR/ruby ]; then
+  echo "Fetching and installing Ruby"
+  mkdir -p $CACHE_DIR/ruby
+  cd $CACHE_DIR/ruby
+  curl -vv -OL "http://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.2.tar.gz"
+  tar zxvf "ruby-2.2.2.tar.gz"
+  cd "ruby-2.2.2"
+  ./configure --prefix=$BUILD_DIR/ruby
+  make
+  make install
+fi
+
+# Copy app to start
+cp -r app/* $BUILD_DIR/
