@@ -58,4 +58,6 @@ export PATH=$PATH:$GEM_HOME/bin
 $BUILD_DIR/ruby/bin/gem env
 gem install bundler
 
+ls -alF $BUILD_DIR
+
 echo "Finishing compile"
