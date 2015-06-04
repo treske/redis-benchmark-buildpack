@@ -4,7 +4,7 @@ require 'yaml'
 payload = {
   'addons'                => [],
   'config_vars'           => {},
-  'default_process_types' => { 'web' => 'bundle exec rackup config.ru -p $PORT' }
+  'default_process_types' => { 'web' => 'bundle exec --verbose rackup config.ru -p $PORT' }
 }.to_yaml
 
 puts payload

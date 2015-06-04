@@ -48,4 +48,6 @@ if [ ! -d $CACHE_DIR/ruby ]; then
   make install
 fi
 
-tree -d $BUILD_DIR
+# List contents of build directory
+cd $BUILD_DIR
+find . | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
