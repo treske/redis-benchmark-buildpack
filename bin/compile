@@ -61,7 +61,7 @@ $BUILD_DIR/ruby/bin/gem env
 gem install bundler --no-rdoc --no-ri 
 gem install sinatra --no-rdoc --no-ri 
 gem install rack --no-rdoc --no-ri 
-gem install thin --no-rdoc --no-ri 
+gem install thin 1.5.1 --no-rdoc --no-ri 
 gem install rack-protection --no-rdoc --no-ri 
 gem install tilt --no-rdoc --no-ri 
 
