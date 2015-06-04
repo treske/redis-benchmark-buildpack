@@ -11,9 +11,6 @@ CACHE_DIR=$2
 
 REDIS_VERSION="3.0.1"
 
-# Clean-up 
-rm -rf $CACHE_DIR/*
-
 # Copy app to build dir
 cp -r $DIR/../app/* $BUILD_DIR/
 # Copy start up script build dir
@@ -48,14 +45,14 @@ if [ ! -d $CACHE_DIR/ruby ]; then
   ./configure --prefix=$BUILD_DIR/ruby
   make
   make install
-
-  mkdir -p $BUILD_DIR/ruby_gems
-  export GEM_HOME=$BUILD_DIR/ruby_gems
-  export PATH=$PATH:$GEM_HOME/bin
-  $BUILD_DIR/ruby/bin/gem env
-
-  gem install bundler
 fi
+
+# Install Ruby gems
+mkdir -p $BUILD_DIR/ruby_gems
+export GEM_HOME=$BUILD_DIR/ruby_gems
+export PATH=$PATH:$GEM_HOME/bin
+$BUILD_DIR/ruby/bin/gem env
+gem install bundler
 
 # List contents of build directory
 # cd $BUILD_DIR
