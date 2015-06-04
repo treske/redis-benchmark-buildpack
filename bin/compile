@@ -58,12 +58,12 @@ export GEM_HOME=$BUILD_DIR/ruby_gems
 export GEM_SPEC_CACHE=$BUILD_DIR/ruby_gems_spec
 export PATH=$PATH:$GEM_HOME/bin
 $BUILD_DIR/ruby/bin/gem env
-gem install bundler
-gem install sinatra
-gem install rack
-gem install thin
-gem install rack-protection
-gem install tilt
+gem install bundler --no-rdoc --no-ri 
+gem install sinatra --no-rdoc --no-ri 
+gem install rack --no-rdoc --no-ri 
+gem install thin --no-rdoc --no-ri 
+gem install rack-protection --no-rdoc --no-ri 
+gem install tilt --no-rdoc --no-ri 
 
 ls -alF $BUILD_DIR
 
