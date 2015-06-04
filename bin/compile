@@ -14,9 +14,10 @@ REDIS_VERSION="3.0.1"
 # Clean-up 
 rm -rf $CACHE_DIR/*
 
-# Copy app to start
+# Copy app to build dir
 cp -r $DIR/../app/* $BUILD_DIR/
-cp -r boot.sh $BUILD_DIR/
+# Copy start up script build dir
+cp -r $DIR/boot.sh $BUILD_DIR/
 
 # Install Redis
 if [ ! -d $CACHE_DIR/redis_$REDIS_VERSION ]; then
