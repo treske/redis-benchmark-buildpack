@@ -40,13 +40,13 @@ if [ ! -d $CACHE_DIR/ruby/ruby-1.9.3 ]; then
   mkdir -p $CACHE_DIR/ruby
   cd $CACHE_DIR/ruby
   curl -vv -kOL  "https://cache.ruby-lang.org/pub/ruby/ruby-1.9.3-p547.tar.gz"
-  tar zxf "ruby-1.9.3.tar.gz"
+  tar zxf "ruby-1.9.3-p547.tar.gz"
 else
   echo "Using Ruby 1.9.3 from cache"
 fi
 
 echo "Installing Ruby"
-cd $CACHE_DIR/ruby/ruby-1.9.3
+cd $CACHE_DIR/ruby/ruby-1.9.3-p547
 make
 make install
 
