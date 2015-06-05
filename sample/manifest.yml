@@ -1,0 +1,8 @@
+---
+applications:
+- name: redis-benchmark
+  memory: 512M
+  host: redis-benchmark
+  buildpack: https://github.com/treske/redis-benchmark-buildpack.git
+  services:
+  - redis
