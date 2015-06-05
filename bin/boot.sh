@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 
-echo "boot.sh"
-
-gem env
-
+# Set environment information for custom Ruby Gems
 export GEM_HOME=$HOME/ruby_gems
 export GEM_SPEC_CACHE=$HOME/ruby_gems_spec
 
-which ruby
-
-echo "Starting app"
+# Start application using bundlder
 $HOME/ruby_gems/bin/bundle exec --verbose rackup config.ru -o 0.0.0.0 -p $PORT
