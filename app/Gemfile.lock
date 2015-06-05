@@ -1,5 +1,7 @@
 GEM
+  remote: https://rubygems.org/
   specs:
+    cf-app-utils (0.4)
     daemons (1.2.2)
     eventmachine (1.0.7)
     rack (1.6.1)
@@ -19,5 +21,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cf-app-utils (~> 0.4)
   sinatra
   thin
