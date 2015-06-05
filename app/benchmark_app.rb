@@ -23,9 +23,11 @@ class RedisBenchmarkApp < Sinatra::Base
     # Concatenate Redis Benchmark command
     cmd = './cmd/redis-benchmark'
     cmd.concat(' -h ')
-    cmd.concat(redis['hostname'])
+    cmd.concat(redis['host'])
     cmd.concat(' -p ')
     cmd.concat(redis['port'].to_s)
+    cmd.concat(' -a ')
+    cmd.concat(redis['password'])
     cmd.concat(' -c ')
     cmd.concat(redis_benchmark_opts['benchmark']['clients'].to_s)
     cmd.concat(' -n ')
