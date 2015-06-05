@@ -47,6 +47,7 @@ fi
 
 echo "Installing Ruby"
 cd $CACHE_DIR/ruby/ruby-1.9.3-p547
+./configure
 make
 make install
 
