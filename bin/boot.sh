@@ -10,4 +10,4 @@ export GEM_SPEC_CACHE=$HOME/ruby_gems_spec
 which ruby
 
 echo "Starting app"
-$HOME/ruby_gems/bin/bundle exec --verbose rackup config.ru -p $PORT
+$HOME/ruby_gems/bin/bundle exec --verbose rackup config.ru -h 0.0.0.0 -p $PORT
