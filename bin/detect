@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
-benchmark_spec_file = File.join ARGV[0], "benchmark_spec.yaml"
+benchmark_spec_file = File.join ARGV[0], "redis_benchmark_spec.yml"
 
 if File.exist?(benchmark_spec_file)
-  puts "Redis Benchmark Spec File"
+  puts "Found Redis Benchmark Spec"
   exit 0
 else
   exit 1
