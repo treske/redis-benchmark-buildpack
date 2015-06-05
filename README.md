@@ -12,7 +12,7 @@ benchmark:
   requests: 150000
 ```
 
-* Create a service or user-provided service instance named `redis` pointing to your Redis server
+* Create a Redis service instance named `redis`
 * Create a benchmark app by pushing the `redis_benchmark_spec.yml` as artifact
 
 ```
@@ -22,3 +22,8 @@ cf push <APP-NAME> -p redis_benchmark_spec.yml -b https://github.com/treske/redi
 * Bind the service instance `redis` to the pushed app
 * Restage the app
 * Invoke the app
+
+## Limitations
+
+* Redis service instance is assumed to be named `redis`
+* Only the ` -n ` and ` -c ` options of http://redis.io/topics/benchmarks are supported
